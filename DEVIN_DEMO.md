@@ -1,0 +1,27 @@
+# Devin demo: Scheduled watchdog automation
+
+**What it shows:** Devin working on a schedule with nobody prompting it. It creates a Devin Automation that checks tests, advisories, outdated packages and bug issues every weekday and reports to Slack, opening a PR or issue when something breaks.
+
+**Needs:** GitHub and Slack connected to your Devin org
+
+More demos: [devin-advanced-demos](https://github.com/thequantexplorer/devin-advanced-demos)
+
+## Set it up
+
+1. Click **Use this template → Create a new repository** (or fork it) into your own GitHub account or org.
+2. In Devin, open **Settings → Integrations → GitHub** and make sure Devin can access the new repository.
+3. Connect **Slack** in Devin's integrations and run `/invite @Devin` in the channel you want reports in. Devin won't create the automation if it can't post there.
+
+## Prompt
+
+Start a new Devin session and paste this. Replace `<you>` with your GitHub user or org, and change the Slack channel.
+
+```text
+Set up a Devin Automation for https://github.com/<you>/devin-demo-scheduled-watchdog that acts as an always-on dependency & health watchdog:
+
+- Schedule: every weekday at 9:00 America/Chicago.
+- Each run: install, run the full test suite, run `npm audit --omit=dev` and `npm outdated`, and check the repo's open issues labeled "bug".
+- If anything is newly failing or a high/critical advisory appears, open a fix PR (or a GitHub issue if it needs a human) and post a short summary to Slack #engineering; if everything is green, post a one-line "all clear".
+
+Create the automation, then trigger one run now so we can see the first report, and tell me how to view/edit it.
+```

@@ -1,0 +1,16 @@
+{
+  "name": "acme-storefront",
+  "version": "2.3.0",
+  "private": true,
+  "description": "Acme outdoor gear storefront (Express + vanilla JS, no build step)",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  }
+}
